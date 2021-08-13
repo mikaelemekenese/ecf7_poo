@@ -47,9 +47,4 @@ class Database {
 
         return self::$conn->lastInsertId();
     }
-
-    protected static function fetchAll() {
-        $films = self::query('SELECT * FROM films');
-        return $films->fetchAll();
-    }
 }
