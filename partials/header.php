@@ -8,14 +8,21 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
     <title>Sakila</title>
+
+    <style>
+        body {
+            background-color: #151515;
+            color: white;
+        }
+    </style>
 </head>
 
 <body>
     <header>
-        <nav class="navbar is-dark" role="navigation" aria-label="main navigation">
+        <nav class="navbar is-black is-fixed-top" role="navigation" aria-label="main navigation">
             <div class="navbar-brand">
-                <a class="navbar-item" href="https://bulma.io">
-                    <h1>Sakila</h1>
+                <a class="navbar-item" style="padding:0;" href="#">
+                    <img src="./images/logo.png" alt="Sakila logo"/>
                 </a>
 
                 <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false"
