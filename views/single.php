@@ -1,22 +1,23 @@
 <?php 
 
-require('./helpers/database.php');
-require('./classes/CRUD.php');
-require('./classes/film.php');
-require('./classes/category.php');
-require('./classes/actor.php');
-require('./classes/rental.php');
+require('../helpers/database.php');
+require('../classes/CRUD.php');
+require('../classes/film.php');
+require('../classes/category.php');
+require('../classes/actor.php');
+require('../classes/rental.php');
+require('../classes/store.php');
 
 ?>
 
-<?php include('partials/header.php'); ?>
+<?php include('../partials/header.php'); ?>
 
 <div class="container is-max-desktop" style="margin-top:68px;">
     
     <br><?php $id = $_GET['id']; $movie = Film::findById($id); ?>
 
-    <div class="card has-text-light" style="background-color:#1b1e22;">
-        <a href="index.php" style="text-decoration:none;position:absolute;z-index:1;top:10px;left:10px;">
+    <div class="card has-text-light" style="background-color:#212529;">
+        <a href="javascript:history.go(-1)" style="text-decoration:none;position:absolute;z-index:1;top:10px;left:10px;">
             <button class="button is-rounded"><b>← Back</b></button>
         </a>
         <div class="card-image" style="position:relative;">
@@ -68,7 +69,7 @@ require('./classes/rental.php');
                         <h2 class="subtitle is-6">
                             Starring :<br>
                             
-                            <?php $actor = Actor::findById($id); foreach($actor as $star) : ?>
+                            <?php $actor = Actor::findByFilm($id); foreach($actor as $star) : ?>
                                 <span style="color:white;"><?php echo ucwords(strtolower($star['actorFirstName'])) ?> <?php echo ucwords(strtolower($star['actorLastName'])) ?><br></span>
                             <?php endforeach; ?>
                         </h2>
@@ -80,4 +81,4 @@ require('./classes/rental.php');
 
 </div>
 
-<?php include('partials/footer.php'); ?>
+<?php include('../partials/footer.php'); ?>

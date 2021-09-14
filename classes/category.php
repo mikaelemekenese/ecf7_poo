@@ -1,6 +1,6 @@
 <?php
 
-require_once('./helpers/database.php');
+require_once('../helpers/database.php');
 require_once('CRUD.php');
 
 class Category extends Database {
@@ -16,7 +16,7 @@ class Category extends Database {
         $category = self::query("SELECT c.category_id AS cat_id, c.name AS cat_name FROM category AS c
             LEFT JOIN film_category AS fc ON fc.category_id = c.category_id
             LEFT JOIN film AS f ON f.film_id = fc.film_id
-            WHERE category_id = $id LIMIT 1");
+            WHERE c.category_id = $id");
         return $category->fetch();
     }
 }

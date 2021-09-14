@@ -32,7 +32,7 @@
         <nav class="navbar is-black is-fixed-top" role="navigation" aria-label="main navigation">
             <div class="navbar-brand">
                 <a class="navbar-item" style="padding:0;" href="index.php">
-                    <img src="./images/logo.png" alt="Sakila logo"/>
+                    <img src="../images/logo.png" alt="Sakila logo"/>
                 </a>
 
                 <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false"
@@ -43,7 +43,7 @@
                 </a>
             </div>
 
-            <div id="navbarBasicExample" class="navbar-menu">
+            <!-- <div id="navbarBasicExample" class="navbar-menu">
                 <div class="navbar-end">
                     <a class="navbar-item">
                         Films
@@ -68,6 +68,6 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> -->
         </nav>
     </header>
