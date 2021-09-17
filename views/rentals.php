@@ -1,6 +1,6 @@
 <?php 
 
-require('../helpers/Database.php');
+require('../helpers/database.php');
 require('../classes/CRUD.php');
 require('../classes/film.php');
 require('../classes/category.php');
@@ -27,50 +27,44 @@ require('../classes/store.php');
                 </a>
             </div>
         </div>
-        <div class="level-center">
+        <div class="level-right">
             <div class="level-item">
-                <?php $id = $_GET['id']; $category = Category::findById($id); ?>
-                <h1 class="title is-centered">Category : <span style="color:white;font-weight:bold;"><?php echo $category['cat_name'] ?></span></h1>
+                <h1 class="title is-centered"><span style="color:white;font-weight:bold;">Currently rented DVDs</span></h1>
             </div>
         </div>
     </nav>
 
     <br>
 
-    <!-- The complete list of the films -->
+    <!-- The complete list of the rentals -->
 
     <table class="table table-dark table-striped has-text-primary-light">
         <thead class="has-text-white-ter">
             <tr class="text-center">
-                <th class="is-vcentered" style="color:#E50914;">Title</th>
-                <th class="is-vcentered" style="color:#E50914;">Category</th>
-                <th class="is-vcentered" style="color:#E50914;">Duration</th>
-                <th class="is-vcentered" style="color:#E50914;">Rating</th>
-                <th class="is-vcentered" style="color:#E50914;">Rental cost<br>(in US $)</th>
-                <th class="is-vcentered" style="color:#E50914;">Available copies</th>
+                <th class="is-vcentered" style="color:#E50914;">Rental Date</th>
+                <th class="is-vcentered" style="color:#E50914;">Movie Title</th>
+                <th class="is-vcentered" style="color:#E50914;">Rented by</th>
+                <th class="is-vcentered" style="color:#E50914;">Staff</th>
+                <th class="is-vcentered" style="color:#E50914;">Store Location</th>
+                <th class="is-vcentered" style="color:#E50914;">Return Date</th>
                 <th class="is-vcentered" style="color:#E50914;"></th>
             </tr>
         </thead>
         <tbody>
-        <?php $id = $_GET['id']; $films = Film::findByCategory($id); foreach($films as $film) : ?>
+        <?php $rentals = Rental::all(); foreach($rentals as $data) : ?>
             <tr class="text-center">
-                <td class="is-vcentered"><?php echo ucwords(strtolower($film['title'])) ?></td>
-                <td class="is-vcentered"><?php echo $film['category'] ?></td>
-                <td class="is-vcentered"><?php 
-                    
-                    $minutes = $film['duration'] % 60;
-                    $hours = floor($film['duration'] / 60);
-                    
-                    if ($hours < 1) : echo sprintf("%02d", $minutes)."m";
-                    else : echo $hours."h ".sprintf("%02d", $minutes)."m";
+                <td class="is-vcentered"><?php echo date('d/m/Y', strtotime($data['rental_date'])) ?></td>
+                <td class="is-vcentered"><span style="font-weight:bold;color:skyblue;"><?php echo ucwords(strtolower($data['movie'])) ?></span></td>
+                <td class="is-vcentered"><?php echo ucwords(strtolower($data['name'])) ?> <?php echo ucwords(strtolower($data['last_name'])) ?></td>
+                <td class="is-vcentered"><?php echo $data['staff_firstname']; ?> <?php echo $data['staff_lastname']; ?></td>
+                <td class="is-vcentered"><?php echo $data['store']; ?></td>
+                <td class="is-vcentered"><?php
+                    if ($data['return_date'] != NULL) : echo '&#9989;';
+                    else : echo '&#10060;';
                     endif;
-                    
                     ?></td>
-                <td class="is-vcentered"><?php echo $film['rating'] ?></td>
-                <td class="is-vcentered"><?php echo $film['price'] ?></td>
-                <td class="is-vcentered"><?php echo $film['ret']; ?></td>
                 <td class="is-vcentered">
-                    <a href="single.php?id=<?php echo $film['id'] ?>" style="text-decoration:none;"><button class="button is-small is-info is-rounded" style="background-color:white;color:#212529;font-weight:bold;">View details</button></a>
+                    <a href="single.php?id=<?php echo $data['id'] ?>" style="text-decoration:none;"><button class="button is-small is-info is-rounded" style="background-color:white;color:#212529;font-weight:bold;">Return DVD</button></a>
                 </td>
             </tr>
         <?php endforeach; ?>

@@ -22,7 +22,7 @@ require('../classes/store.php');
     <nav class="level" style="margin-bottom:0;">
         <div class="level-left">
             <div class="level-item">
-                <a href="javascript:history.go(-1)" style="text-decoration:none;">
+                <a href="index.php" style="text-decoration:none;">
                     <button class="button is-rounded"><b>← Back</b></button>
                 </a>
             </div>

@@ -43,31 +43,12 @@
                 </a>
             </div>
 
-            <!-- <div id="navbarBasicExample" class="navbar-menu">
+            <div id="navbarBasicExample" class="navbar-menu">
                 <div class="navbar-end">
-                    <a class="navbar-item">
-                        Films
-                    </a>
-
-                    <a class="navbar-item">
-                        Acteurs
-                    </a>
-
-                    <div class="navbar-item has-dropdown is-hoverable">
-                        <a class="navbar-link">
-                            Plus
-                        </a>
-
-                        <div class="navbar-dropdown">
-                            <a class="navbar-item">
-                                A propos
-                            </a>
-                            <a class="navbar-item">
-                                Contact
-                            </a>
-                        </div>
-                    </div>
+                    <a class="navbar-item" href="../views/index.php">Home</a>
+                    <a class="navbar-item" href="../views/rentals.php">Rentals</a>
+                    <a class="navbar-item" href="../views/customers.php">Customers</a>
                 </div>
-            </div> -->
+            </div>
         </nav>
     </header>

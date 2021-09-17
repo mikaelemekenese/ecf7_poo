@@ -1,12 +1,13 @@
 <?php 
 
-require('../helpers/Database.php');
+require('../helpers/database.php');
 require('../classes/CRUD.php');
 require('../classes/film.php');
 require('../classes/category.php');
 require('../classes/actor.php');
 require('../classes/rental.php');
 require('../classes/store.php');
+require('../classes/customer.php');
 
 ?>
 
@@ -29,48 +30,36 @@ require('../classes/store.php');
         </div>
         <div class="level-right">
             <div class="level-item">
-                <?php $id = $_GET['id']; $store = Store::findById($id); ?>
-                <h1 class="title is-centered">Store : <span style="color:white;font-weight:bold;"><?php echo $store['city'] ?>, <?php echo $store['country'] ?></span></h1>
+                <h1 class="title is-centered"><span style="color:white;font-weight:bold;">Complete list of customers (sorted by last names)</span></h1>
             </div>
         </div>
     </nav>
 
     <br>
 
-    <!-- The complete list of the films -->
+    <!-- The complete list of the customers -->
 
     <table class="table table-dark table-striped has-text-primary-light">
         <thead class="has-text-white-ter">
             <tr class="text-center">
-                <th class="is-vcentered" style="color:#E50914;">Title</th>
-                <th class="is-vcentered" style="color:#E50914;">Category</th>
-                <th class="is-vcentered" style="color:#E50914;">Duration</th>
-                <th class="is-vcentered" style="color:#E50914;">Rating</th>
-                <th class="is-vcentered" style="color:#E50914;">Rental cost<br>(in US $)</th>
-                <th class="is-vcentered" style="color:#E50914;">Available copies</th>
+                <th class="is-vcentered" style="color:#E50914;">Customer Ref.</th>
+                <th class="is-vcentered" style="color:#E50914;">First Name</th>
+                <th class="is-vcentered" style="color:#E50914;">Last Name</th>
+                <th class="is-vcentered" style="color:#E50914;">Email</th>
+                <th class="is-vcentered" style="color:#E50914;">Address</th>
                 <th class="is-vcentered" style="color:#E50914;"></th>
             </tr>
         </thead>
         <tbody>
-        <?php $id = $_GET['id']; $films = Film::findByStore($id); foreach($films as $film) : ?>
+        <?php $customers = Customer::all(); foreach($customers as $client) : ?>
             <tr class="text-center">
-                <td class="is-vcentered"><?php echo ucwords(strtolower($film['title'])) ?></td>
-                <td class="is-vcentered"><?php echo $film['category'] ?></td>
-                <td class="is-vcentered"><?php 
-                    
-                    $minutes = $film['duration'] % 60;
-                    $hours = floor($film['duration'] / 60);
-                    
-                    if ($hours < 1) : echo sprintf("%02d", $minutes)."m";
-                    else : echo $hours."h ".sprintf("%02d", $minutes)."m";
-                    endif;
-                    
-                    ?></td>
-                <td class="is-vcentered"><?php echo $film['rating'] ?></td>
-                <td class="is-vcentered"><?php echo $film['price'] ?></td>
-                <td class="is-vcentered"><?php echo $film['ret']; ?></td>
+                <td class="is-vcentered"><?php echo $client['id'] ?></td>
+                <td class="is-vcentered"><?php echo ucwords(strtolower($client['name'])) ?></td>
+                <td class="is-vcentered"><?php echo ucwords(strtolower($client['last_name'])) ?></td>
+                <td class="is-vcentered"><?php echo strtolower($client['email']); ?></td>
+                <td class="is-vcentered"><?php echo $client['address']; ?></td>
                 <td class="is-vcentered">
-                    <a href="single.php?id=<?php echo $film['id'] ?>" style="text-decoration:none;"><button class="button is-small is-info is-rounded" style="background-color:white;color:#212529;font-weight:bold;">View details</button></a>
+                    <a href="single.php?id=<?php echo $client['id'] ?>" style="text-decoration:none;"><button class="button is-small is-info is-rounded" style="background-color:white;color:#212529;font-weight:bold;">Return DVD</button></a>
                 </td>
             </tr>
         <?php endforeach; ?>
