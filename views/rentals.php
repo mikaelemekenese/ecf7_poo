@@ -59,12 +59,12 @@ require('../classes/store.php');
                 <td class="is-vcentered"><?php echo $data['staff_firstname']; ?> <?php echo $data['staff_lastname']; ?></td>
                 <td class="is-vcentered"><?php echo $data['store']; ?></td>
                 <td class="is-vcentered"><?php
-                    if ($data['return_date'] != NULL) : echo '&#9989;';
-                    else : echo '&#10060;';
+                    if ($data['return_date'] == NULL) : echo '&#10060;';
+                    else : echo date('d/m/Y', strtotime($data['rental_date']));
                     endif;
                     ?></td>
                 <td class="is-vcentered">
-                    <a href="single.php?id=<?php echo $data['id'] ?>" style="text-decoration:none;"><button class="button is-small is-info is-rounded" style="background-color:white;color:#212529;font-weight:bold;">Return DVD</button></a>
+                    <a href="rental.php?id=<?php echo $data['id'] ?>" style="text-decoration:none;"><button class="button is-small is-info is-rounded" style="background-color:white;color:#212529;font-weight:bold;">Rental Details</button></a>
                 </td>
             </tr>
         <?php endforeach; ?>

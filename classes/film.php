@@ -6,7 +6,7 @@ require_once('CRUD.php');
 class Film extends Database {
 
     public static function all() {
-        $films = self::query("SELECT f.film_id AS id, f.title AS title, f.description AS description, c.name AS category, f.length AS duration, f.rating AS rating, f.rental_rate AS price, COUNT(r.rental_date) AS rent, COUNT(r.return_date) AS ret FROM film AS f 
+        $films = self::query("SELECT f.film_id AS id, i.inventory_id AS inventory_id, f.title AS title, f.description AS description, c.name AS category, f.length AS duration, f.rating AS rating, f.rental_rate AS price, COUNT(r.rental_date) AS rent, COUNT(r.return_date) AS ret FROM film AS f 
             LEFT JOIN film_category AS fc ON fc.film_id = f.film_id 
             LEFT JOIN category AS c ON c.category_id = fc.category_id
             LEFT JOIN inventory AS i ON f.film_id = i.film_id
