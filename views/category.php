@@ -47,7 +47,7 @@ require('../classes/store.php');
                 <th class="is-vcentered" style="color:#E50914;">Duration</th>
                 <th class="is-vcentered" style="color:#E50914;">Rating</th>
                 <th class="is-vcentered" style="color:#E50914;">Rental cost<br>(in US $)</th>
-                <th class="is-vcentered" style="color:#E50914;">Available copies</th>
+                <th class="is-vcentered" style="color:#E50914;">Available</th>
                 <th class="is-vcentered" style="color:#E50914;"></th>
             </tr>
         </thead>
@@ -68,7 +68,10 @@ require('../classes/store.php');
                     ?></td>
                 <td class="is-vcentered"><?php echo $film['rating'] ?></td>
                 <td class="is-vcentered"><?php echo $film['price'] ?></td>
-                <td class="is-vcentered"><?php echo $film['ret']; ?></td>
+                <td class="is-vcentered"><?php 
+                    if ($film['return_date'] != NULL) : echo "&#9989;";
+                    else : echo "&#10060;";
+                    endif; ?></td>
                 <td class="is-vcentered">
                     <a href="single.php?id=<?php echo $film['id'] ?>" style="text-decoration:none;"><button class="button is-small is-info is-rounded" style="background-color:white;color:#212529;font-weight:bold;">View details</button></a>
                 </td>

@@ -6,7 +6,7 @@ require_once('CRUD.php');
 class Film extends Database {
 
     public static function all() {
-        $films = self::query("SELECT f.film_id AS id, i.inventory_id AS inventory_id, f.title AS title, f.description AS description, c.name AS category, f.length AS duration, f.rating AS rating, f.rental_rate AS price, COUNT(r.rental_date) AS rent, COUNT(r.return_date) AS ret FROM film AS f 
+        $films = self::query("SELECT f.film_id AS id, i.inventory_id AS inventory_id, f.title AS title, f.description AS description, c.name AS category, f.length AS duration, f.rating AS rating, f.rental_rate AS price, r.rental_date AS rental_date, r.return_date AS return_date, COUNT(r.rental_date) AS rent, COUNT(r.return_date) AS ret FROM film AS f 
             LEFT JOIN film_category AS fc ON fc.film_id = f.film_id 
             LEFT JOIN category AS c ON c.category_id = fc.category_id
             LEFT JOIN inventory AS i ON f.film_id = i.film_id
@@ -22,7 +22,7 @@ class Film extends Database {
 
     public static function search(string $search) {
         
-        $sql = "SELECT f.film_id AS id, f.title AS title, f.description AS description, c.name AS category, f.length AS duration, f.rating AS rating, f.rental_rate AS price, COUNT(r.rental_date) AS rent, COUNT(r.return_date) AS ret FROM film AS f 
+        $sql = "SELECT f.film_id AS id, f.title AS title, f.description AS description, c.name AS category, f.length AS duration, f.rating AS rating, f.rental_rate AS price, r.rental_date AS rental_date, r.return_date AS return_date, COUNT(r.rental_date) AS rent, COUNT(r.return_date) AS ret FROM film AS f 
         LEFT JOIN film_category AS fc ON fc.film_id = f.film_id 
         LEFT JOIN category AS c ON c.category_id = fc.category_id
         LEFT JOIN inventory AS i ON f.film_id = i.film_id
@@ -51,7 +51,7 @@ class Film extends Database {
     }
 
     public static function findByStore($id) {
-        $films = self::query("SELECT f.film_id AS id, f.title AS title, f.description AS description, c.name AS category, f.length AS duration, f.rating AS rating, f.rental_rate AS price, COUNT(r.rental_date) AS rent, COUNT(r.return_date) AS ret, cty.city AS city, ctry.country AS country FROM film AS f 
+        $films = self::query("SELECT f.film_id AS id, f.title AS title, f.description AS description, c.name AS category, f.length AS duration, f.rating AS rating, f.rental_rate AS price, r.rental_date AS rental_date, r.return_date AS return_date, COUNT(r.rental_date) AS rent, COUNT(r.return_date) AS ret, cty.city AS city, ctry.country AS country FROM film AS f 
             LEFT JOIN film_category AS fc ON fc.film_id = f.film_id 
             LEFT JOIN category AS c ON c.category_id = fc.category_id
             LEFT JOIN inventory AS i ON f.film_id = i.film_id
@@ -67,7 +67,7 @@ class Film extends Database {
     }
 
     public static function findByCategory($id) {
-        $films = self::query("SELECT f.film_id AS id, f.title AS title, f.description AS description, c.name AS category, f.length AS duration, f.rating AS rating, f.rental_rate AS price, COUNT(r.rental_date) AS rent, COUNT(r.return_date) AS ret, cty.city AS city, ctry.country AS country FROM film AS f 
+        $films = self::query("SELECT f.film_id AS id, f.title AS title, f.description AS description, c.name AS category, f.length AS duration, f.rating AS rating, f.rental_rate AS price, r.rental_date AS rental_date, r.return_date AS return_date, COUNT(r.rental_date) AS rent, COUNT(r.return_date) AS ret, cty.city AS city, ctry.country AS country FROM film AS f 
             LEFT JOIN film_category AS fc ON fc.film_id = f.film_id 
             LEFT JOIN category AS c ON c.category_id = fc.category_id
             LEFT JOIN inventory AS i ON f.film_id = i.film_id
@@ -83,7 +83,7 @@ class Film extends Database {
     }
 
     public static function findByActor($id) {
-        $films = self::query("SELECT f.film_id AS id, f.title AS title, f.description AS description, c.name AS category, act.first_name AS actorFirstName, act.last_name AS actorLastName, f.length AS duration, f.rating AS rating, f.rental_rate AS price, COUNT(r.rental_date) AS rent, COUNT(r.return_date) AS ret, cty.city AS city, ctry.country AS country FROM film AS f 
+        $films = self::query("SELECT f.film_id AS id, f.title AS title, f.description AS description, c.name AS category, act.first_name AS actorFirstName, act.last_name AS actorLastName, f.length AS duration, f.rating AS rating, f.rental_rate AS price, r.rental_date AS rental_date, r.return_date AS return_date, COUNT(r.rental_date) AS rent, COUNT(r.return_date) AS ret, cty.city AS city, ctry.country AS country FROM film AS f 
             LEFT JOIN film_category AS fc ON fc.film_id = f.film_id 
             LEFT JOIN category AS c ON c.category_id = fc.category_id
             LEFT JOIN film_actor AS fa ON fa.film_id = f.film_id 

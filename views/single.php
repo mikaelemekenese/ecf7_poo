@@ -36,7 +36,7 @@ require('../classes/store.php');
                         </div>
                         <div class="level-right">
                             <div class="level-item">
-                                <a href="rental-create.php?id=<?php echo $movie['film_id'] ?>" style="text-decoration:none;">
+                                <a href="rental-create.php?id=<?php echo $id ?>" style="text-decoration:none;">
                                     <button class="button is-success is-light is-rounded"><b>Rent</b>&nbsp;|&nbsp;$<?php echo $movie['price'] ?></button>
                                 </a>
                             </div>
