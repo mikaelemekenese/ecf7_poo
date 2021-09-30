@@ -59,7 +59,7 @@ class Database {
         return self::query("INSERT INTO " . static::$table . " ($queries) VALUES ($values)", $params);
     }
 
-    public function update($params) {
+    public static function update($params) {
         $queries = array_reduce($columns, function($prev, $next, $index) {
             echo $index;
             return $prev . ($prev ? ', ' : '') . $next;
@@ -69,7 +69,7 @@ class Database {
         return $this->query("UPDATE ". static::$table . " SET $queries WHERE id=" . $this->id, $params);
     }
     
-    public function delete() {
+    public static function delete() {
         return $this->query("DELETE FROM " . static::$table . " WHERE id=" . $this->id);
     }
 }

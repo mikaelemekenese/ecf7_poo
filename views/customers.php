@@ -6,7 +6,6 @@ require('../classes/film.php');
 require('../classes/category.php');
 require('../classes/actor.php');
 require('../classes/rental.php');
-require('../classes/store.php');
 require('../classes/customer.php');
 
 ?>
@@ -47,7 +46,6 @@ require('../classes/customer.php');
                 <th class="is-vcentered" style="color:#E50914;">Last Name</th>
                 <th class="is-vcentered" style="color:#E50914;">Email</th>
                 <th class="is-vcentered" style="color:#E50914;">Address</th>
-                <th class="is-vcentered" style="color:#E50914;"></th>
             </tr>
         </thead>
         <tbody>
@@ -58,9 +56,6 @@ require('../classes/customer.php');
                 <td class="is-vcentered"><?php echo ucwords(strtolower($client['last_name'])) ?></td>
                 <td class="is-vcentered"><?php echo strtolower($client['email']); ?></td>
                 <td class="is-vcentered"><?php echo $client['address']; ?></td>
-                <td class="is-vcentered">
-                    <a href="single.php?id=<?php echo $client['id'] ?>" style="text-decoration:none;"><button class="button is-small is-info is-rounded" style="background-color:white;color:#212529;font-weight:bold;">Return DVD</button></a>
-                </td>
             </tr>
         <?php endforeach; ?>
         </tbody>   

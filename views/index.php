@@ -20,23 +20,7 @@ require('../classes/store.php');
     <br>
     
     <div class="card has-text-light" style="background-color:#212529;text-align:center;width:500px;margin:auto;padding:20px;padding-bottom: 5px;">
-        <div class="field">
-            <div class="control">
-                <form class="form" method="POST">
-                    <div class="select is-rounded">
-                        <select name="store" onchange="location = this.value;" style="width:400px;">
-                            <option selected disabled>-- Choose a store --</option>
-                            <?php $stores = Store::all(); foreach($stores as $store) : ?>
-                                <option value="store.php?id=<?php echo $store['id'] ?>">
-                                    <?php echo $store['city'] ?>, <?php echo $store['country'] ?>
-                                </option>
-                            <?php endforeach; ?>
-                        </select>
-                    </div>
-                </form>
-            </div>
-        </div>
-
+    
         <div class="field">
             <div class="control">
                 <form class="form" method="POST">
@@ -90,7 +74,7 @@ require('../classes/store.php');
                 <th class="is-vcentered" style="color:#E50914;">Category</th>
                 <th class="is-vcentered" style="color:#E50914;">Duration</th>
                 <th class="is-vcentered" style="color:#E50914;">Rating</th>
-                <th class="is-vcentered" style="color:#E50914;">Rental cost<br>(in US $)</th>
+                <th class="is-vcentered" style="color:#E50914;">Rental Cost</th>
                 <th class="is-vcentered" style="color:#E50914;">Available</th>
                 <th class="is-vcentered" style="color:#E50914;"></th>
             </tr>

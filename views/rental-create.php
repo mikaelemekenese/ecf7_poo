@@ -70,7 +70,7 @@ require('../classes/staff.php');
 
     <br>
 
-    <form class="form" method="POST" action="rental-create.php?id=">
+    <form class="form" method="POST" action="rentals.php">
 
         <div class="field">
             <label class="label" style="color:white;">Rental Date</label>
@@ -106,7 +106,7 @@ require('../classes/staff.php');
         <div class="field">
             <label class="label" style="color:white;">Return Date</label>
             <div class="control">
-                <input class="input" type="date" name="return_date" value="NULL" disabled>
+                <input class="input" type="date" name="return_date" disabled>
             </div>
         </div>
         <div class="field">
@@ -124,7 +124,12 @@ require('../classes/staff.php');
         </div><br>
         <div class="field is-grouped">
             <div class="control">
-                <button class="button is-link" type="submit" name="submit">Create the rental</button>
+                <?php $id = $_GET['id']; $inventory = Inventory::selectById($id); ?>
+                    <?php   if (!empty($inventory['inventory_id'])) : 
+                                echo '<button class="button is-link" type="submit" name="submit">Create the rental</button>';
+                            else : 
+                                echo '<button class="button is-link" title="This movie is not available" type="submit" name="submit" disabled>Create the rental</button>';
+                            endif; ?>
             </div>
             <div class="control">
                 <button class="button is-link is-light">Cancel</button>

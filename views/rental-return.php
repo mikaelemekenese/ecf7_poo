@@ -40,37 +40,42 @@ require('../classes/staff.php');
 
     <br>
 
-    <form class="form is-light" method="POST" action="rental-create.php">
+    <form class="form is-light" method="POST" action="rentals.php">
+
+        <?php $id = $_GET['id']; $rental = Rental::findById($id); ?>
+
         <div class="field">
             <label class="label" style="color:white;">Rental Date</label>
             <div class="control">
-                <input class="input" type="date" name="rental_date">
+                <input class="input" type="datetime" name="rental_date" value="<?php echo $rental['rental_date'] ?>" disabled>
             </div>
         </div>
         <div class="field">
             <label class="label" style="color:white;">Inventory</label>
             <div class="control">
-                <input class="input" type="number" name="inventory_id" placeholder="Inventory">
+                <input class="input" type="number" name="inventory_id" value="<?php echo $rental['inventory_id'] ?>" disabled>
             </div>
         </div>
         <div class="field">
             <label class="label" style="color:white;">Customer</label>
             <div class="control">
-                <input class="input" type="number" name="customer_id" placeholder="Customer">
+                <input class="input" type="number" name="customer_id" value="<?php echo $rental['customer_id'] ?>" disabled>
             </div>
         </div>
         <div class="field">
-            <label class="label" style="color:white;">Rental Date</label>
+            <label class="label" style="color:white;">Return Date</label>
             <div class="control">
-                <input class="input" type="date" name="return_date">
+                <?php $id = $_GET['id']; $rental = Rental::update($id); ?>
+                <input class="input" type="date" name="return_date" value="<?php echo $rental['return_date'] ?>">
             </div>
         </div>
         <div class="field">
             <label class="label" style="color:white;">Staff</label>
             <div class="control">
-                <input class="input" type="number" name="staff_id" placeholder="Staff">
+                <?php $id = $_GET['id']; $rental = Rental::findById($id); ?>
+                <input class="input" type="number" name="staff_id" value="<?php echo $rental['staff_id'] ?>" disabled>
             </div>
-        </div>
+        </div><br>
         <div class="field is-grouped">
             <div class="control">
                 <button class="button is-link">Return the DVD</button>

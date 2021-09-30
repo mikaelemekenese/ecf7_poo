@@ -45,8 +45,6 @@ require('../classes/store.php');
                 <th class="is-vcentered" style="color:#E50914;">Movie Title</th>
                 <th class="is-vcentered" style="color:#E50914;">Rented by</th>
                 <th class="is-vcentered" style="color:#E50914;">Staff</th>
-                <th class="is-vcentered" style="color:#E50914;">Store Location</th>
-                <th class="is-vcentered" style="color:#E50914;">Return Date</th>
                 <th class="is-vcentered" style="color:#E50914;"></th>
             </tr>
         </thead>
@@ -57,12 +55,6 @@ require('../classes/store.php');
                 <td class="is-vcentered"><span style="font-weight:bold;color:skyblue;"><?php echo ucwords(strtolower($data['movie'])) ?></span></td>
                 <td class="is-vcentered"><?php echo ucwords(strtolower($data['name'])) ?> <?php echo ucwords(strtolower($data['last_name'])) ?></td>
                 <td class="is-vcentered"><?php echo $data['staff_firstname']; ?> <?php echo $data['staff_lastname']; ?></td>
-                <td class="is-vcentered"><?php echo $data['store']; ?></td>
-                <td class="is-vcentered"><?php
-                    if ($data['return_date'] == NULL) : echo '&#10060;';
-                    else : echo date('d/m/Y', strtotime($data['rental_date']));
-                    endif;
-                    ?></td>
                 <td class="is-vcentered">
                     <a href="rental.php?id=<?php echo $data['id'] ?>" style="text-decoration:none;"><button class="button is-small is-info is-rounded" style="background-color:white;color:#212529;font-weight:bold;">Rental Details</button></a>
                 </td>
