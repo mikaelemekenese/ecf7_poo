@@ -14,7 +14,7 @@ Pour cet ECF, nous avons été tenus de réaliser une plateforme de location de 
 <h2>Identification des contraintes et difficultés rencontrées</h2>
 
 * La base de données étant si imposante n'était pas évidente à comprendre, notamment les relations entre les tables ainsi tout ce qui concerne les "views", les "stored procedures" et les "functions" (pour éviter toute confusion, je ne me suis focalisé que sur les tables).
-* Je ne suis pas parvenu à rendre fonctionnels la location et le retour de DVD. Les requêtes sont correctes (elles fonctionnent sur Workbench) et il n'y a priori pas d'erreur au niveau des formulaire mais le problème se situe au niveau de l'envoi des données.
+* Je ne suis pas parvenu à rendre fonctionnels la location et le retour de DVD. Les requêtes sont correctes (elles fonctionnent sur Workbench) et il n'y a priori pas d'erreur au niveau des formulaires : le problème se situe au niveau de l'envoi des données.
 <br>
 
 <h2>Installation du projet</h2>
