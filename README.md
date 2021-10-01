@@ -1,4 +1,4 @@
-<h1>Evaluation - Compétences 6 (Développer les composants d’accès aux données) et 7 (Développer la partie back-end d’une application web ou web mobile)</h1>
+<h1>Evaluation - Compétences 6 et 7</h1>
 <br>
 Pour cet ECF, nous avons été tenus de réaliser une plateforme de location de films au format DVD pour l'entreprise Sakila. Cette dernière sera un outil destiné à être utilisé en interne par les employés qui gèreront les locations par les clients de l'entreprise. Le projet sera entièrement réalisé en orienté objet.
 <br><br>
