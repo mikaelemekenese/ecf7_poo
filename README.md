@@ -6,6 +6,7 @@ Pour cet ECF, nous avons été tenus de réaliser une plateforme de location de 
 <h2>Choix techniques et prises de décision</h2>
 
 * Pour la mise en forme du site, j'ai décidé d'utiliser le framework CSS Bulma, très esthétique et facile à utiliser.
+* Pour une meilleure lisibilité du code, j'ai séparé les fichiers de vues (views et partials pour les header et footer) de ceux de classes et placé le fichier de base de données dans un dossier qui lui est propre.
 * La liste des films étant très longue (1000 au total), j'ai établi en page d'accueil un système de "filtre" afin de dégager la liste de films par catégorie ou par acteur ainsi qu'un système de recherche de films (uniquement sur les titres de film).
 * La location de film s'effectuera dans la page de détails de chaque film (accès via les boutons "View details" en page d'accueil).
 * Les retours se feront via la page "Rentals" (barre de navigation) qui affiche la liste des locations en cours.
