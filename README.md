@@ -9,13 +9,14 @@ Pour cet ECF, nous avons été tenus de réaliser une plateforme de location de 
 * Pour une meilleure lisibilité du code, j'ai séparé les fichiers de vues (views et partials pour les header et footer) de ceux de classes et placé le fichier de base de données dans un dossier qui lui est propre.
 * La liste des films étant très longue (1000 au total), j'ai établi en page d'accueil un système de "filtre" afin de dégager la liste de films par catégorie ou par acteur ainsi qu'un système de recherche de films (uniquement sur les titres de film).
 * La location de film s'effectuera dans la page de détails de chaque film (accès via les boutons "View details" en page d'accueil).
-* Les retours se feront via la page "Rentals" (barre de navigation) qui affiche la liste des locations en cours.
+* Les retours se feront via la page "Rentals" (barre de navigation) qui affiche la liste des locations en cours (cliquer sur "Rental details" pour le retour).
 <br><br>
 
 <h2>Identification des contraintes et difficultés rencontrées</h2>
 
 * La base de données étant si imposante n'était pas évidente à comprendre, notamment les relations entre les tables ainsi que tout ce qui concerne les "views", les "stored procedures" et les "functions".
-* Je ne suis pas parvenu à rendre fonctionnels la location et le retour de DVD. Les requêtes sont correctes (elles fonctionnent sur Workbench) et il n'y a priori pas d'erreur dans les formulaires : l'envoi des données en base ne se fait pas (souci au niveau des fonctions create et update dans la classe Rental que je n'arrive pas à résoudre). 
+* Les fonctionnalités principales du site, la location et le rendu des films, n'ont pas été évidentes à mettre en place.
+* Je ne suis pas parvenu à instaurer un système de paiement pour les locations.
 <br>
 
 <h2>Installation du projet</h2>
