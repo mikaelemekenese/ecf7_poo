@@ -41,14 +41,26 @@ class Rental extends Database {
         return $rental->fetch();
     }
 
-    public static function create($params) {
-        $rental = self::query("INSERT INTO rental (rental_date, inventory_id, customer_id, return_date, staff_id)
-            VALUES (:rental_date, :inventory_id, :customer_id, :return_date, :staff_id)", $params);
-        return $rental;
+    public function store() {
+        $rental_date = isset($_POST['rental_date']) ? $_POST['rental_date'] : '';
+        $inventory_id = isset($_POST['inventory_id']) ? $_POST['inventory_id'] : '';
+        $customer_id = isset($_POST['customer_id']) ? $_POST['customer_id'] : '';
+        $staff_id = isset($_POST['staff_id']) ? $_POST['staff_id'] : '';
+
+        $sql = 'INSERT INTO rental (rental_date, inventory_id, customer_id, staff_id) VALUES (?, ?, ?, ?)';
+
+        $result = $this->connect()->prepare($sql);
+        $result->execute([$rental_date, $inventory_id, $customer_id, $staff_id]);
     }
 
-    public static function update($id) {
-        $rental = self::query("UPDATE rental SET return_date = :rental_date WHERE rental_id = $id");
-        return $rental;
+    public function return() {
+        $rental_id = isset($_GET['id']) ? $_GET['id'] : '';
+        $return_date = isset($_POST['return_date']) ? $_POST['return_date'] : '';
+
+        $sql = 'UPDATE rental SET return_date = ? WHERE rental_id = ?';
+        
+        $result = $this->connect()->prepare($sql);
+        $result->execute([$return_date, $rental_id]);
+        return $result;
     }
 }

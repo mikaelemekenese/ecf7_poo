@@ -13,34 +13,26 @@ require('../classes/staff.php');
 
 ?>
 
-<?php 
+<?php
 
-    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-        if (!empty($_POST['submit'])) {
-            $rental = new Rental([
-                'rental_date' => $_POST['rental_date'],
-                'inventory_id' => $_POST['inventory_id'],
-                'customer_id' => $_POST['customer_id'],
-                'staff_id' => $_POST['staff_id'],
-            ]);
-
-            header("Localisation: rentals.php");
-            
-            echo    "<div class='container'>
-                        <div class='notification is-success' style='margin-top:68px;'>
-                            <button class='delete'></button>
-                            <h5>New rental successfully created !</h5>
-                        </div>
-                    </div><br>";
-        } else {
-            echo    "<div class='container'>
-                        <div class='notification is-danger' style='margin-top:68px;'>
-                            <button class='delete'></button>
-                            <h5>Oops ! There was a problem with your new rental...</h5>
-                        </div>
-                    </div><br>";
-        }
+    $rentalCreate = new Rental();
+    if (isset($_POST['submit'])) {
+        $rentalCreate->store();
+        echo    "<div class='container'>
+                    <div class='notification is-success' style='margin-top:68px;'>
+                        <button class='delete'></button>
+                        <h5>New rental successfully created !</h5>
+                    </div>
+                </div><br>";
+    } else {
+        echo    "<div class='container'>
+                    <div class='notification is-danger' style='margin-top:68px;'>
+                        <button class='delete'></button>
+                        <h5>Oops ! There was a problem with your new rental...</h5>
+                    </div>
+                </div><br>";
     }
+
 ?>
 
 <style>
@@ -70,7 +62,7 @@ require('../classes/staff.php');
 
     <br>
 
-    <form class="form" method="POST" action="rentals.php">
+    <form class="form" method="POST" action="">
 
         <div class="field">
             <label class="label" style="color:white;">Rental Date</label>

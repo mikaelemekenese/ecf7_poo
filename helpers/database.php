@@ -9,7 +9,7 @@ class Database {
 
     public static $conn;
 
-    private static function connect() {
+    public static function connect() {
         try {
             if (empty(self::$conn)) {
                 $conn = new PDO("mysql:host=" . self::servername . ";dbname=" . self::database, self::username, self::password);

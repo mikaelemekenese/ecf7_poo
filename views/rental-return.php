@@ -13,6 +13,29 @@ require('../classes/staff.php');
 
 ?>
 
+<?php
+
+    $rentalEdit = new Rental();
+    if (isset($_POST['submit'])) {
+        $rentalEdit->return();
+        echo    "<div class='container'>
+                    <div class='notification is-success' style='margin-top:68px;'>
+                        <button class='delete'></button>
+                        <h5>DVD successfully returned !</h5>
+                    </div>
+                </div><br>";
+    } else {
+        echo    "<div class='container'>
+                    <div class='notification is-danger' style='margin-top:68px;'>
+                        <button class='delete'></button>
+                        <h5>Oops ! That rental couldn't be edited...</h5>
+                    </div>
+                </div><br>";
+    }
+
+?>
+
+
 <style>
     select, .select { width: 100%; }
 </style>
@@ -40,7 +63,7 @@ require('../classes/staff.php');
 
     <br>
 
-    <form class="form is-light" method="POST" action="rentals.php">
+    <form class="form is-light" method="POST" action="">
 
         <?php $id = $_GET['id']; $rental = Rental::findById($id); ?>
 
@@ -65,20 +88,18 @@ require('../classes/staff.php');
         <div class="field">
             <label class="label" style="color:white;">Return Date</label>
             <div class="control">
-                <?php $id = $_GET['id']; $rental = Rental::update($id); ?>
-                <input class="input" type="date" name="return_date" value="<?php echo $rental['return_date'] ?>">
+                <input class="input" type="datetime" name="return_date" value="<?php echo date('Y-m-d h:i:s'); ?>">
             </div>
         </div>
         <div class="field">
             <label class="label" style="color:white;">Staff</label>
             <div class="control">
-                <?php $id = $_GET['id']; $rental = Rental::findById($id); ?>
                 <input class="input" type="number" name="staff_id" value="<?php echo $rental['staff_id'] ?>" disabled>
             </div>
         </div><br>
         <div class="field is-grouped">
             <div class="control">
-                <button class="button is-link">Return the DVD</button>
+                <button class="button is-link" name="submit">Return the DVD</button>
             </div>
             <div class="control">
                 <button class="button is-link is-light">Cancel</button>
