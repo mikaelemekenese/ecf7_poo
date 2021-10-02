@@ -24,13 +24,6 @@ require('../classes/staff.php');
                         <h5>DVD successfully returned !</h5>
                     </div>
                 </div><br>";
-    } else {
-        echo    "<div class='container'>
-                    <div class='notification is-danger' style='margin-top:68px;'>
-                        <button class='delete'></button>
-                        <h5>Oops ! That rental couldn't be edited...</h5>
-                    </div>
-                </div><br>";
     }
 
 ?>

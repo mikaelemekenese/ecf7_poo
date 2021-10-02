@@ -24,13 +24,6 @@ require('../classes/staff.php');
                         <h5>New rental successfully created !</h5>
                     </div>
                 </div><br>";
-    } else {
-        echo    "<div class='container'>
-                    <div class='notification is-danger' style='margin-top:68px;'>
-                        <button class='delete'></button>
-                        <h5>Oops ! There was a problem with your new rental...</h5>
-                    </div>
-                </div><br>";
     }
 
 ?>
