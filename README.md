@@ -16,7 +16,7 @@ Pour cet ECF, nous avons été tenus de réaliser une plateforme de location de 
 
 * La base de données étant si imposante n'était pas évidente à comprendre, notamment les relations entre les tables ainsi que tout ce qui concerne les "views", les "stored procedures" et les "functions".
 * Les fonctionnalités principales du site, la location et le rendu des films, n'ont pas été évidentes à mettre en place.
-* Je ne suis pas parvenu à instaurer un système de paiement pour les locations.
+* Je n'ai pas instauré de système de paiement pour les locations.
 <br>
 
 <h2>Installation du projet</h2>
