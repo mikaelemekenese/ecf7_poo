@@ -23,4 +23,4 @@ Pour cet ECF, nous avons été tenus de réaliser une plateforme de location de 
 
 1. Dans MySql Workbench, vous devez importer les deux fichiers .sql (d'abord sakila-schema.sql puis sakila-data.sql) de la BDD : Server > Data Import > Import from Self-Contained File.<br>
 
-2. Après avoir lancé votre serveur en local (localhost), rendez-vous sur votre navigateur pour afficher les données : localhost/{nom du dossier contenant le projet placé dans htdocs}<br>
+2. Après avoir lancé votre serveur en local (localhost), rendez-vous sur votre navigateur pour afficher les données : localhost/{nom du dossier contenant le projet placé dans htdocs}/views<br>
